@@ -45,8 +45,10 @@ function getSimilarityMatrixWordNet(keywords, method) {
 				for(let similarWord of similarWords){
 					if(keywords.includes(similarWord))
 						matrix[index[keywords[i]]][index[similarWord]] = 1 ;
+
 					else continue;
 				 }
+				 matrix[index[keywords[i]]][index[keywords[i]]] = 1 ;
 	});
 		promises.push(promise);
 		//console.log(promises)
