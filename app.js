@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express')
 var bodyParser = require('body-parser')
 var getDistanceMatrix = require('./similarity.js')
@@ -21,6 +22,6 @@ app.post('/similarityMatrix', function (req, res, next) {
   getDistanceMatrix(keywords, method).then(result => res.json(result)).catch(err => console.log(err))
 })
 
-app.listen(3000, function () {
-  console.log('CORS-enabled web server listening on port!')
+app.listen(process.env.PORT, function () {
+  console.log('CORS-enabled web server listening on port ' + process.env.PORT)
 })
